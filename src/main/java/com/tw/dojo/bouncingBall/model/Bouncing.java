@@ -2,23 +2,24 @@ package com.tw.dojo.bouncingBall.model;
 
 import com.tw.dojo.bouncingBall.ui.BallWorld;
 
-public class BouncingBall extends Ball {
+public class Bouncing implements Behaviour {
+
+    private int direction;
+    protected int y;
+    protected int radius;
     public static final int MOVEMENT_SPEED = 12;
 
     static final int DOWN = 1;
     static final int UP = -1;
-
-    private int direction;
-
-    BouncingBall(int x, int y, int direction) {
-        super(x, y);
+    public Bouncing(int direction) {
         this.direction = direction;
     }
 
     @Override
-    public void update() {
+    public void update(Ball ball) {
+        this.y = ball.y;
         direction = reverseDirectionIfNecessary();
-        y = move();
+        ball.y = move();
     }
 
     /***********************************************************************************
@@ -44,18 +45,19 @@ public class BouncingBall extends Ball {
     }
 
     private int switchDirection() {
-        return movingDown() ? UP : DOWN;
+        return movingDown() ? Bouncing.UP : Bouncing.DOWN;
     }
 
     private int move() {
-        return y + (MOVEMENT_SPEED * direction);
+        return y + (Bouncing.MOVEMENT_SPEED * direction);
     }
 
     private boolean movingDown() {
-        return direction == DOWN;
+        return direction == Bouncing.DOWN;
     }
 
     private boolean movingUp() {
-        return direction == UP;
+        return direction == Bouncing.UP;
     }
+
 }

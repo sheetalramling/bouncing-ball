@@ -1,8 +1,8 @@
 package com.tw.dojo.bouncingBall;
 
 import com.tw.dojo.bouncingBall.model.Ball;
-import com.tw.dojo.bouncingBall.model.BouncingBall;
-import com.tw.dojo.bouncingBall.model.ElasticBall;
+import com.tw.dojo.bouncingBall.model.Bouncing;
+import com.tw.dojo.bouncingBall.model.Elastic;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -13,11 +13,11 @@ public class BallTestHarness {
     }
 
     public static int oneStepDownFrom(int centerY) {
-        return centerY + BouncingBall.MOVEMENT_SPEED;
+        return centerY + Bouncing.MOVEMENT_SPEED;
     }
 
     public static int oneStepUpFrom(int centerY) {
-        return centerY - BouncingBall.MOVEMENT_SPEED;
+        return centerY - Bouncing.MOVEMENT_SPEED;
     }
 
 
@@ -26,10 +26,10 @@ public class BallTestHarness {
     }
 
     public static int oneStepInwardsFrom(int radius) {
-        return radius - ElasticBall.GROWTH_RATE;
+        return radius - Elastic.GROWTH_RATE;
     }
 
     public static int oneStepOutwardsFrom(int radius) {
-        return radius + ElasticBall.GROWTH_RATE;
+        return radius + Elastic.GROWTH_RATE;
     }
 }

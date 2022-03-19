@@ -55,7 +55,7 @@ public class BallWorld extends JPanel {
     private void paintBall(Ball ball, Graphics graphics) {
         Point center = ball.center();
         Point upperLeftCoordinate = new Point(center.x - ball.radius(), center.y - ball.radius());
-        int diameter = 2 * ball.radius();
+        int diameter = 2*ball.radius();
 
         graphics.setColor(Color.GREEN);
         graphics.fillOval(upperLeftCoordinate.x, upperLeftCoordinate.y, diameter, diameter);
